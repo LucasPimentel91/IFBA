@@ -1,0 +1,72 @@
+#include <criterion/criterion.h>
+#include <criterion/redirect.h>
+
+#include "q3.C" // Substitua "seu_arquivo.h" pelo nome do arquivo onde as funções estão definidas
+
+Test(NoCircularTest, PositiveValue) {
+    NoSimples* head = NULL;
+    FILE* file = fopen("test_output.txt", "w");
+    inserirNoCircular(&head, 5.0, file);
+    fclose(file);
+
+    cr_assert_not_null(head, "Falha ao inserir valor positivo na lista circular");
+    cr_assert_eq(head->valor, 5.0, "Valor inserido na lista circular incorreto");
+
+    FILE* testFile = fopen("test_output.txt", "r");
+    float value;
+    fscanf(testFile, "(%f)", &value);
+    fclose(testFile);
+
+    cr_assert_eq(value, 5.0, "Valor inserido na lista circular incorreto no arquivo de saída");
+}
+
+Test(NoCircularTest, NegativeValue) {
+    NoSimples* head = NULL;
+    FILE* file = fopen("test_output.txt", "w");
+    inserirNoCircular(&head, -3.0, file);
+    fclose(file);
+
+    cr_assert_not_null(head, "Falha ao inserir valor negativo na lista circular");
+    cr_assert_eq(head->valor, -3.0, "Valor inserido na lista circular incorreto");
+
+    FILE* testFile = fopen("test_output.txt", "r");
+    float value;
+    fscanf(testFile, "(%f)", &value);
+    fclose(testFile);
+
+    cr_assert_eq(value, -3.0, "Valor inserido na lista circular incorreto no arquivo de saída");
+}
+
+Test(NoDuploTest, PositiveKey) {
+    NoDuplo* head = NULL;
+    FILE* file = fopen("test_output.txt", "w");
+    inserirNoDuplo(&head, 10, file);
+    fclose(file);
+
+    cr_assert_not_null(head, "Falha ao inserir chave positiva na lista duplamente ligada");
+    cr_assert_eq(head->key, 10, "Chave inserida na lista duplamente ligada incorreta");
+
+    FILE* testFile = fopen("test_output.txt", "r");
+    int key;
+    fscanf(testFile, "[%d]", &key);
+    fclose(testFile);
+
+    cr_assert_eq(key, 10, "Chave inserida na lista duplamente ligada incorreta no arquivo de saída");
+}
+
+Test(NoDuploTest, NegativeKey) {
+    NoDuplo* head = NULL;
+    FILE* file = fopen("test_output.txt", "w");
+    inserirNoDuplo(&head, -5, file);
+    fclose(file);
+
+    cr_assert_not_null(head, "Falha ao inserir chave negativa na lista duplamente ligada");
+    cr_assert_eq(head->key, -5, "Chave inserida na lista duplamente ligada incorreta");
+
+    FILE* testFile = fopen("test_output.txt", "r");
+    int key;
+    fscanf(testFile, "[%d]", &key);
+    fclose(testFile);
+
+    cr_assert_eq(key, -5, "Chave inserida na lista duplamente ligada incorreta no arquivo de saída");
+}
