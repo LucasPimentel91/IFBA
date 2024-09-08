@@ -97,9 +97,52 @@ double calculator(double n1, double n2, char simbol){
     }
 }
 
+typedef struct pessoa{
+    char nome[100];
+    char endereco[1000];
+    char telefone[100];
+}Pessoa;
 
+void sortAlfabetica(Pessoa *registro, int quanti){
+    for(int a=0;a<quanti;a++){
 
-
+        int a_menor = a;
+        for(int b=a+1;b<quanti;b++){
+            if(registro[b].nome[0] < registro[a_menor].nome[0]){
+                a_menor = b;
+            }
+        }
+        Pessoa aux = registro[a];
+        registro[a] = registro[a_menor];
+        registro[a_menor] = aux;
+    }
+}
+void imprimirPessoa(Pessoa registro[], int quanti){
+    if(registro == NULL){
+        printf("Array inexistente!");
+    }else{
+        sortAlfabetica(registro, quanti);
+        for(int i=0;i<quanti;i++){
+            printf("Nome: %s\n", registro[i].nome);
+            printf("Endereco: %s\n", registro[i].endereco);
+            printf("Telefone: %s\n\n", registro[i].telefone);
+        }
+    }
+}
+void getPessoa(Pessoa registro[], int quanti){
+    if(registro == NULL){
+        printf("Array inexistente!");
+    }else{
+        for(int i=0;i<quanti;i++){
+            scanf("%s", registro[i].nome);
+            getchar();
+            scanf("%s", registro[i].endereco);
+            getchar();
+            scanf("%s", registro[i].telefone);
+            getchar();
+        }
+    }
+}
 
 
 
@@ -107,6 +150,10 @@ double calculator(double n1, double n2, char simbol){
 int main(){
     /*printf("%d", QuadroPerf(-5)==1);
     printf("Volume de raio 3: %2.f", volumeEsfera(3));
-    printf("%d", segundosTotal(1, 1, 60));*/
-    printf("%.1lf", calculator(5, 10, '/'));
+    printf("%d", segundosTotal(1, 1, 60));
+    printf("%.1lf", calculator(5, 10, '/'));*/
+    Pessoa registro[5];
+    int quanti = 5;
+    getPessoa(registro, quanti);
+    imprimirPessoa(registro, quanti);
 }
