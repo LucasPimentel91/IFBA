@@ -144,16 +144,184 @@ void getPessoa(Pessoa registro[], int quanti){
     }
 }
 
+int coeficiente(int km, int g){
+    return km / g;
+}
+
+void conselho(int n){
+    if(n<8){
+        printf("VENDA O CARRO");
+    }else if(n>8 && n<13){
+        printf("ECONOMICO");
+    }else{
+        printf("SUPER ECONOMICO");
+    }
+}
+
+int validaTriangulo(int a, int b, int c){
+    if(a + b > c){
+        if(a + c > b){
+            if(b + c > a){
+                return 1;
+            }else{
+                return 0;
+            }
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+    }
+}
+
+void tipoTriangulo(int a, int b, int c){
+    if(validaTriangulo(a, b, c) == 0){
+        printf("NAO E TRIANGULO");
+    }else{
+        if(a==b && a==c){
+            printf("\nESSE TRIANGULO E EQUILATERO");
+        }else if (a == b || a == c){
+            printf("\nESSE TRINGULO E ISOSCELES");
+        }else{
+            if(b==c){
+                printf("\nESSE TRIANGULO E ISOSCELES");
+            }else{
+                printf("\nESSE TRINGULO E ESCALENO");
+            }
+        }
+    }
+}
+
+void DesenhaLinha(int n){
+    if(n==1){
+        printf("=");
+    }else{
+        printf("=");
+        return DesenhaLinha(n - 1);
+    }
+}
+
+int somaIntervalo(int n1, int n2){
+    if(n1 < 0 && n2 < 0){
+        printf("SOMENTE NUMEROS POSITIVOS");
+        return 0;
+    }
+    if(n1 + 1 == n2){
+        return 0;
+    }else{
+        int soma=0;
+        for(int i = n1 + 1;i<n2;i++){
+            printf("%d", i);
+            soma += i;
+        }
+        return soma;
+    }
+}
+
+int potencia(int base, int exp){
+    int multi = base;
+    for(int i=1;i<exp;i++){
+        base *= multi;
+    }
+    return base;
+}
+
+int ehPrimo(int n){
+    int cont=0;
+    for(int i=n;i>0;i--){
+        if(n%i == 0){
+            cont++;
+        }
+    }
+    if(cont == 2){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+int fatorPrimoMax(int n){
+    for(int i=n;i>0;--i){
+        if(n%i == 0 && ehPrimo(i)==1){
+            return i;
+        }
+    }
+    return 0;
+}
+
+void dobra_somar(int *p1, int *p2){
+    int soma= *p1 + *p2;
+    *p1 = soma;
+}
+
+void imprimirEndereco(float array[], int quanti){
+    for(int a=0;a<quanti;a++){
+        printf("%p\n", (void*)&array[a]);
+    }
+}
+
+void imprimirEnderecoMatriz(float matriz[][3], int quanti){
+    for(int i=0;i<quanti;i++){
+        printf("\n");
+        for(int a=0;a<3;a++){
+            printf("%p\t", (void*)&matriz[i][a]);
+        }
+    }
+}
+
+/*
+
+int array[5];
+    int *ptr = array;
+    for(int i=0;i<5;i++){
+        scanf("%d", (ptr + i));
+        printf("%d\t%d\n", *(ptr + i), (*(ptr + i)) * 2);
+    }
+
+*/
+
+int quantiPrimos(int n){
+    int cont=0;
+    for(int i=1;i<n;i++){
+        if(ehPrimo(i)==1){
+            cont++;
+        }
+    }
+    return cont;
+}
 
 
+void linhasExclamacao(int n){
+    for(int a=1;a<=n;a++){
+        int b=0;
+        while(b != a){
+            printf("!");
+            b++;
+        }
+        printf("\n");
+    }
+}
 
+void formarTriangulo(int largura){
+    int altura = (2*largura)-1;
+    for(int i=1;i<largura + 1;i++){
+        int b=0;
+        while(b != i){
+            printf("*");
+            b++;
+        }
+        printf("\n");
+    }
+
+    for(int i=altura/2;i>0;i = i - 1){
+        int b=0;
+        while(b != i){
+            printf("*");
+            b++;
+        }
+        printf("\n");
+    }
+}
 int main(){
-    /*printf("%d", QuadroPerf(-5)==1);
-    printf("Volume de raio 3: %2.f", volumeEsfera(3));
-    printf("%d", segundosTotal(1, 1, 60));
-    printf("%.1lf", calculator(5, 10, '/'));*/
-    Pessoa registro[5];
-    int quanti = 5;
-    getPessoa(registro, quanti);
-    imprimirPessoa(registro, quanti);
+    formarTriangulo(4);
 }
