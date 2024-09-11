@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include <math.h>
 #include <assert.h>
 #define pi 3.141592
@@ -322,6 +324,100 @@ void formarTriangulo(int largura){
         printf("\n");
     }
 }
+
+//Prova I:
+//1º Questão
+void inverterData(char data[]) {
+    int posi1 = 0, posi2 = 0;
+    int quant = strlen(data);
+    
+    // Encontrar as posições dos separadores '/'
+    for (int a = 0; a < quant; a++) {
+        if (data[a] == '/') {
+            if (posi1 == 0) {
+                posi1 = a;
+            } else if (posi2 == 0) {
+                posi2 = a;
+            }
+        }
+    }
+    
+    // Extração de dia, mês e ano
+    char dia[3], mes[3], ano[5];
+    
+    strncpy(dia, data, posi1); // Copiar o dia
+    dia[posi1] = '\0'; // Terminar a string com '\0'
+    
+    strncpy(mes, data + posi1 + 1, posi2 - posi1 - 1); // Copiar o mês
+    mes[posi2 - posi1 - 1] = '\0';
+    
+    strcpy(ano, data + posi2 + 1); // Copiar o ano
+
+    // Formatar a string invertida como AAAA/MM/DD
+    snprintf(data, quant + 1, "%s/%s/%s", ano, mes, dia);
+}
+
+int isAcentuado(char c) {
+    // Checa se o caractere está no intervalo dos acentuados na tabela ASCII estendida
+    int num =c;
+    return (num >= 192 && num <= 255);  // Intervalo aproximado para caracteres acentuados em ASCII estendido
+}
+
+void organizaCaracteresAcentuados(char *str){
+    int n = strlen(str);
+    char resultado[n + 1];  // Array para armazenar a string rearranjada
+    int pos_acento = 0;     // Índice para os caracteres acentuados
+    int pos_normal = 0;     // Índice para os demais caracteres
+
+    // Iterar pela string e colocar os caracteres acentuados primeiro
+    for (int i = 0; i < n; i++) {
+        if (isAcentuado(str[i])) {
+            resultado[pos_acento++] = str[i];  // Coloca o caractere acentuado no início
+        }
+    }
+
+    // Preencher o restante com os caracteres não acentuados
+    for (int i = 0; i < n; i++) {
+        if (!isAcentuado(str[i])) {
+            resultado[pos_acento + pos_normal++] = str[i];
+        }
+    }
+    resultado[n] = '\0';  // Finalizar a nova string com o caractere nulo
+
+    // Copiar o resultado de volta para a string original
+    strcpy(str, resultado);
+}
+
+void prova(int *p){
+int *c = p;
+if(*c > 0){
+*c=*c-1;
+prova(c);
+*p=*p-1;
+prova(p);
+printf("c: %d", *c);
+printf("p: %d", *p);
+}
+}
+
+int serieS(int n){
+    if(n == 0){
+        return 1;
+    }else{
+        int prod = n*n;
+        return ((prod + 1)/n) + serieS(n - 1);
+    }
+}
+
+long long fatorialExponencial(int n){
+    if(n == 0){
+        return 1;
+    }else{
+        return pow(n, fatorialExponencial(n - 1));
+    }
+}
+
 int main(){
-    formarTriangulo(4);
+    int n=4;
+    printf("%lld", fatorialExponencial(n));
 }

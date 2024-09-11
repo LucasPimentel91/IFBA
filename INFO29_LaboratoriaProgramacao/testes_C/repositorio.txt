@@ -1,0 +1,168 @@
+typedef struct no{
+    int valor;
+    struct no *prox; 
+}No;
+
+No *init_No(int x){
+    No *novo = (No*)malloc(sizeof(No));
+    novo->valor=x;
+    novo->prox=NULL;
+    return novo;
+}
+
+int inserir(No *init){
+    int num; scanf("%d", &num);
+    No *novo = (No*)malloc(sizeof(No));
+    if(novo == NULL){
+        return 0;
+    }else{
+        novo->valor = num;novo->prox=NULL;
+        if(init->prox==NULL){
+            init->prox=novo;
+            return 1;
+        }else{
+            No *aux = init;
+            while(aux->prox != NULL){
+                aux = aux->prox;
+            }
+            aux->prox=novo;
+            return 1;
+        }
+    }
+}
+
+int inserirOrdenado(No *init){
+    int num; scanf("%d", &num);
+    No *novo = init_No(num);
+    if(novo == NULL){
+        return 0;
+    }else{
+        No *aux = init;
+        No *ant = NULL;
+        while(aux != NULL && aux->prox->valor < novo->valor){
+            ant = aux;
+            aux = aux->prox;
+        }
+        if(aux == NULL){
+            ant->prox = novo;
+        }
+        ant=aux;
+        aux=aux->prox;
+        ant->prox=novo;
+        novo->prox=aux;
+        return 1;
+        }
+    }
+
+
+
+void printList(No *head) {
+    if (head == NULL) {
+        printf("Nao ha lista!\n");
+        return;
+    }
+
+    if (head->prox == NULL) {
+        printf("Lista vazia!\n");
+        return;
+    }
+
+    No *aux = head;  // Começar pelo primeiro nó real, não pela sentinela
+    while (aux != NULL) {
+        printf("%d", aux->valor);
+        aux = aux->prox;
+        if (aux != NULL) {
+            printf("->");
+        }
+    }
+    printf("\n");
+}
+
+int removerElemento(No *head, int *exit){
+    int num; scanf("%d", &num);
+    if(head == NULL){
+        return 0;
+    }else{
+        No *aux = head;
+        No *ant = NULL;
+        while(aux != NULL && aux->valor != num){
+            ant = aux;
+            aux = aux->prox;
+        }
+        if(aux == NULL){
+            return 0;
+        }
+        *exit = aux->valor;
+        if(ant == NULL){
+            head = aux->prox;
+        }
+        ant->prox = aux->prox;
+        free(aux);
+        return 1;
+    }
+}
+
+void duplicarElementos(No *head){
+    if(head != NULL){
+        char resp;
+        printf("Duplicar par(p) ou impar(i)? ");
+        scanf(" %c", &resp);
+        No *aux = head;
+        switch(resp){
+            case 'p':
+                while(aux != NULL){
+                    if(aux->valor % 2 == 0){
+                        No *novo = init_No(-aux->valor);
+                        novo->prox = aux->prox;
+                        aux->prox = novo;
+                        aux = novo->prox;
+                    }else{
+                        aux = aux->prox;
+                    }
+                }
+            break;
+            case 'i':
+                while(aux != NULL){
+                    if(aux->valor % 2 != 0){
+                        No *novo = init_No(-aux->valor);
+                        novo->prox = aux->prox;
+                        aux->prox = novo;
+                        aux = novo->prox;
+                    }else{
+                        aux = aux->prox;
+                    }
+                }
+            break;
+            default:
+                printf("Alternativa incorreta!");
+        }
+    }
+}
+
+
+void readWriteArchives(FILE *out, No *head){
+    if(out == NULL){
+        return;
+    }else{
+        if(head == NULL){
+            return;
+        }else{
+            No *aux = head;
+            while(aux != NULL){
+                if(aux->valor > 0){
+                    fprintf(out, "%d,", 1);
+                    for(int i=0;i<aux->valor;i++){
+                        fprintf(out, ",%c", aux->sexo);
+                    }
+                }else{
+                    fprintf(out, "%d,", 0);
+                    for(int i=0;i<-aux->valor;i++){
+                        fprintf(out, ",%c", aux->sexo);
+                }
+            }
+                fprintf(out, "\n");
+                aux = aux->prox;
+            }
+        }
+    }
+}
