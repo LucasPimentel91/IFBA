@@ -6,6 +6,12 @@
 #include <assert.h>
 #define pi 3.141592
 
+
+typedef struct no{
+    int valor;
+    struct no *dir;
+    struct no *esq; 
+}No;
 int QuadroPerf(int n){
     if(n < 0){
         printf("Numeros perfeitos nao sao negativos!!!");
@@ -417,7 +423,27 @@ long long fatorialExponencial(int n){
     }
 }
 
+int alturaTree(No *raiz){
+    if(raiz==NULL){return 0;}
+    else{
+        int alt_esq = alturaTree(raiz->esq);
+        int alt_dir = alturaTree(raiz->dir);
+
+        if(alt_esq > alt_dir){return alt_esq + 1;}
+        else{return alt_dir + 1;}
+    }
+}
+
+int functionH(int m, int n){
+    if(m == 1){return n + 1;}
+    if(n == 1){return m + 1;}
+    else{
+        return functionH(m - 1, n) + functionH(m, n - 1);
+    }
+}
+
 int main(){
-    int n=4;
-    printf("%lld", fatorialExponencial(n));
+    int n=3;
+    int m=4;
+    printf("%d", functionH(m, n));
 }

@@ -62,6 +62,30 @@ No *listaEncadeada(){
 
 }
 
+int inserirPosicaoOrdenado(int posicao, int valor){
+    if(!ehPosicaoValida){return -1;}
+    if(vetorPrincipal[posicao - 1].array == NULL){return -1;}
+    if(vetorPrincipal[posicao - 1].tamanho == vetorPrincipal[posicao - 1].quantidade){return -1;}
+
+    int tras=0;
+    for(int a=0;a<vetorPrincipal[posicao - 1].quantidade - 1;a++){
+        if(vetorPrincipal[posicao - 1].array[a] < valor){tras++;}
+    }
+
+    int aux = vetorPrincipal[posicao - 1].array[tras];
+    vetorPrincipal[posicao - 1].array[tras] = valor;
+    vetorPrincipal[posicao - 1].quantidade++;
+    int cont=0;
+    for(int a=tras + 1;a<vetorPrincipal[posicao - 1].quantidade - 1;a++){
+        cont++;
+        int aux2 = vetorPrincipal[posicao - 1].array[a];
+        vetorPrincipal[posicao - 1].array[a] = aux;
+        vetorPrincipal[posicao - 1].array[a + 1] = aux2;
+    }
+
+    return cont;
+}
+
 int main(){
     
 }
