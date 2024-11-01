@@ -4,10 +4,12 @@ public class Player {
     private int Min_energy;
     private boolean sword;
 
+    /*OBJETOS DA MESMA CLASSE PODEM MODIFICAR OS ATRIBUTOS, MESMO SENDO PRIVADOS */
 
-    public void init(String name, int Min_energy){
+    public Player(String name, int Min_energy){
         this.name = name;
         this.Min_energy = Min_energy;
+        this.energy= 0;
     }
 
     public void increaseEnergy(int x){
@@ -31,13 +33,13 @@ public class Player {
         }
     }
 
-    public int duel(Player duelist){
+    public void duel(Player duelist){
         if(duelist.energy > this.energy){
-            --this.energy;
-            return 1;
+            this.energy--;
+            duelist.energy++;
         }
         this.energy++;
-        return -1;
+        duelist.energy--;
     }
     
 }
