@@ -4,6 +4,7 @@ class Person
     private int id;
     private String address;
     private int age;
+    protected char sexo;
 
     public void becomeOlder(){
         this.age++;
