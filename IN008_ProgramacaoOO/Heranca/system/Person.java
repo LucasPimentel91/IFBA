@@ -1,3 +1,5 @@
+package system;
+
 class Person
 {
     private String name;
@@ -11,6 +13,10 @@ class Person
         this.id = id;
         this.address = address;
         this.age=age;
+    }
+
+    public void sleep(){
+        System.out.println("Eu sou uma pessoa e durmo por 8 horas");
     }
 
     public void becomeOlder(){
