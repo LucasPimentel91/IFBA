@@ -1,13 +1,12 @@
 package system;
 
-class Student extends Person
+public class Student extends Person
 {
     private String program;
 
-    public Student(String name, int id, String address, int age){
-        this.name = name;
-        this.id = id;
-        this.address = address;
-        this.age=age;
+    public Student(String name, int id, String address, int age, String program){
+        // chame o construtor de Person que recebe name, id, address, age
+        super(name, id, address, age);
+        this.program = program;
     }
 }
