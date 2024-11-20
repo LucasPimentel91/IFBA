@@ -22,10 +22,15 @@ class Student
         System.out.println(name + " - " + age);
     }
 
+    //Em java, comparação de conteúdo de duas classes é usando o método equals
+    boolean equals(Student student){
+        return name.equals(student.name) && age == student.age;
+    }
+
     public static void main(String[] args){
-        //Vetores de uma classe;
+        //Vetor de uma classe;
         Vector<Student> students = new Vector<Student>();
-        //LinkedList:
+        //Lista encadeada de uma classe:
         LinkedList<Student> studentsList = new LinkedList<Student>();
         students.add(new Student("João", 20));
         
