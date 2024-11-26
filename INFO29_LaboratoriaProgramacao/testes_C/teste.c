@@ -399,10 +399,10 @@ int *c = p;
 if(*c > 0){
 *c=*c-1;
 prova(c);
+printf("c: %d\n", *c);
 *p=*p-1;
 prova(p);
-printf("c: %d", *c);
-printf("p: %d", *p);
+printf("p: %d\n", *p);
 }
 }
 
@@ -444,6 +444,6 @@ int functionH(int m, int n){
 
 int main(){
     int n=3;
-    int m=4;
-    printf("%d", functionH(m, n));
+    int *m = &n;
+    prova(m);
 }
