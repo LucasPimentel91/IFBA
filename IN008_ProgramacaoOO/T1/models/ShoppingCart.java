@@ -1,6 +1,6 @@
+package models;
 import java.util.ArrayList;
 
-package class;
 
 public class ShoppingCart {
     

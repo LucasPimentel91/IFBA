@@ -1,11 +1,11 @@
 package main;
-import class.Administrator;
-import class.Costumer;
-import class.User;
-import class.Order;
-import class.Product;
-import class.ShoppingCart;
+import models.Administrator;
+import models.Costumer;
+import models.User;
+import models.Order;
+import models.Product;
+import models.ShoppingCart;
 
-public class main{
+public class Main{
 
 }

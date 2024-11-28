@@ -1,4 +1,4 @@
-package class;
+package models;
 
 public class Order {
     private int id;
