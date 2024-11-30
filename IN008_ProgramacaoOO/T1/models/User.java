@@ -15,4 +15,11 @@ public class User implements Serializable
         this.email=email;
         this.password=password;
     }
+
+    public int verifyAccount(String email, String password){
+        //Ver a necessidade de equals em vez de "=="
+        if(this.email == email && this.password == password)
+            return 1;
+        return 0;
+    }
 }
