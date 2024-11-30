@@ -18,7 +18,7 @@ public class User implements Serializable
 
     public int verifyAccount(String email, String password){
         //Ver a necessidade de equals em vez de "=="
-        if(this.email == email && this.password == password)
+        if(this.email.equals(email) && this.password.equals(password))
             return 1;
         return 0;
     }

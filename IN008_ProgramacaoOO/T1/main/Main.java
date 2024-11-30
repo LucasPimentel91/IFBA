@@ -37,9 +37,11 @@ public class Main{
         String password = scan.nextLine();
         for(Administrator adm : ADMs){
             int check = adm.verifyAccount(email, password);
-            if(check == 1)
+            System.out.println("\n\n" + check + "\n");
+            if(check == 1){
                 System.out.println("\nAcesso permitido!\n");
                 return 1;
+            }
         }
         return 0;
     }
@@ -105,9 +107,7 @@ public class Main{
                 }
             }
             System.out.println("Email ou senha incorretos!");
-            scan.close();
         }
-        
     }
     
 
