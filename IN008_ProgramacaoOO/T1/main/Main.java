@@ -38,17 +38,40 @@ public class Main{
         for(Administrator adm : ADMs){
             int check = adm.verifyAccount(email, password);
             if(check == 1)
-                scan.close();
+                System.out.println("\nAcesso permitido!\n");
                 return 1;
         }
-        scan.close();
         return 0;
     }
 
     //Desenvolva um menu geral para testes
-    public static void menu(){
-
+    public static int menu(){
+        System.out.println("1. Produtc\n2. Costumer user\n3. Administrator\n3. Order\n4. Shopping Cart\nQual opcao:");
+        int answer = scan.nextInt();
+        return answer;
     }
+
+    public static void menuProduct(){
+        System.out.println("1. Register product\n2. Update product\n3. Delete product\nQual opcao:");
+        int answer = scan.nextInt();
+    }
+    public static void menuCostumer(){
+        System.out.println("1. Register costumer\n2. Update costumer\n3. Delete costumer\nQual opcao:");
+        int answer = scan.nextInt();
+    }
+    public static void menuAdministrator(){
+        System.out.println("1. Register administrator\n2. Update administrator\n3. Delete administrator\nQual opcao:");
+        int answer = scan.nextInt();
+    }
+    public static void menuOrder(){
+        System.out.println("1. Register order\n2. Update order\n3. Delete order\nQual opcao:");
+        int answer = scan.nextInt();
+    }
+    public static void menuShoppingCart(){
+        System.out.println("1. Register shopping cart\n2. Update shopping cart\n3. Delete shopping cart\nQual opcao:");
+        int answer = scan.nextInt();
+    }
+
 
     public static void main(String[] args){
         Administrator admim = new Administrator(0, "admin", "admin@marketplace.com", "12345");
@@ -56,10 +79,35 @@ public class Main{
 
         /*FileOutputStream fileOUT = new FileOutputStream("C://Users//plact//OneDrive//Documentos//scripts//IFBA//IN008_ProgramacaoOO//T1//config//database.bytej");
         ObjectOutputStream objectOUT = new ObjectOutputStream(fileOUT);*/
-
-        login();
+        while(true){
+            int num;
+            num = login();
+            System.out.println("\n\n"+ num +"\n\n");
+            if(num == 1){
+                switch (menu()) {
+                    case 1:
+                        menuProduct();
+                        break;
+                    case 2:
+                        menuCostumer();
+                        break;
+                    case 3:
+                        menuAdministrator();
+                        break;
+                    case 4:
+                        menuOrder();
+                        break;
+                    case 5:
+                        menuShoppingCart();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            System.out.println("Email ou senha incorretos!");
+            scan.close();
+        }
         
-    
     }
     
 
