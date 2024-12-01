@@ -1,10 +1,5 @@
 package main;
-import models.Administrator;
-import models.Costumer;
-import models.User;
-import models.Order;
-import models.Product;
-import models.ShoppingCart;
+import models.*;
 import java.util.*;
 import java.io.*;
 
