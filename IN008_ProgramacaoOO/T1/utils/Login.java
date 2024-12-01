@@ -1,17 +1,23 @@
 package utils;
 import java.util.*;
 
-public class Login {
+import config.ListsObjects;
+import models.*;
 
+public class Login {
+    private static ListsObjects list = new ListsObjects();
     private static Scanner scan = new Scanner(System.in);
 
-    public static int login(){
+    public int login(){
         System.out.print("email: ");
         String email = scan.nextLine();
         System.out.print("senha: ");
         String password = scan.nextLine();
-        for(Administrator adm : ADMs){
-            int check = adm.verifyAccount(email, password);
+        int num = list.ADMs.size();
+        System.out.println("\n\n"+num+"\n");
+        for(int i=0; i < list.ADMs.size(); i++){
+            System.out.println("\n\nEntrei no laço\n");
+            int check = list.ADMs.get(i).verifyAccount(email, password);
             System.out.println("\n\n" + check + "\n");
             if(check == 1){
                 System.out.println("\nAcesso permitido!\n");

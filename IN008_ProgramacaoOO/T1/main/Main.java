@@ -2,16 +2,13 @@ package main;
 import models.*;
 import utils.*;
 import config.*;
+import menu.*;
 import java.util.*;
 import java.io.*;
 
 public class Main{
     //Listas para as instâncias de objetos
-    private static ArrayList<Product> products = new ArrayList<Product>();
-    private static LinkedList<Order> orders = new LinkedList<Order>();
-    private static ArrayList<Costumer> costumers = new ArrayList<Costumer>();
-    private static ArrayList<Administrator> ADMs = new ArrayList<Administrator>();
-
+    
     /*scan.close();
 
     FileOutputStream fileCreation = new FileOutputStream("config/database.bytej");
@@ -29,8 +26,9 @@ public class Main{
     public static void main(String[] args){
         Login refLogin = new Login();
         Sub_Menus refMenu = new Sub_Menus();
+        ListsObjects list = new ListsObjects();
         Administrator admim = new Administrator(0, "admin", "admin@marketplace.com", "12345");
-        ADMs.add(admim);
+        list.ADMs.add(admim);
 
         /*FileOutputStream fileOUT = new FileOutputStream("C://Users//plact//OneDrive//Documentos//scripts//IFBA//IN008_ProgramacaoOO//T1//config//database.bytej");
         ObjectOutputStream objectOUT = new ObjectOutputStream(fileOUT);*/
