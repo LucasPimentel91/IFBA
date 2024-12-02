@@ -33,9 +33,7 @@ public class Main{
         /*FileOutputStream fileOUT = new FileOutputStream("C://Users//plact//OneDrive//Documentos//scripts//IFBA//IN008_ProgramacaoOO//T1//config//database.bytej");
         ObjectOutputStream objectOUT = new ObjectOutputStream(fileOUT);*/
         while(true){
-            int num;
-            num = refLogin.login();
-            System.out.println("\n\n"+ num +"\n\n");
+            int num = refLogin.login(list);
             if(num == 1){
                 switch (refMenu.menu()) {
                     case 1:
