@@ -28,6 +28,8 @@ public class Main{
         Sub_Menus refMenu = new Sub_Menus();
         ListsObjects list = new ListsObjects();
         Administrator admim = new Administrator(0, "admin", "admin@marketplace.com", "12345");
+        Costumer test = new Costumer(1, "Lucas", "lucas@gmail.com", "54321", "Tv. do Mandu");
+        list.users.add(test);
         list.users.add(admim);
 
         /*FileOutputStream fileOUT = new FileOutputStream("C://Users//plact//OneDrive//Documentos//scripts//IFBA//IN008_ProgramacaoOO//T1//config//database.bytej");
@@ -37,7 +39,13 @@ public class Main{
             if(num != 0){
                 switch (num) {
                     case 1:
-                        refMenu.menuAdmin();
+                        switch(refMenu.menuAdmin()){
+                            case 1:
+                                CreateNewProduct.createNewProduct(list);
+                                break;
+                            default:
+                                break;
+                        };
                         break;
                     case 2:
                         refMenu.menuCostumer();
