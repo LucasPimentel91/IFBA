@@ -13,9 +13,9 @@ public class CreateNewProduct {
         System.out.print("Descricao: ");
         String description = scan.nextLine();
         System.out.print("Preco: ");
-        float price = scan.nextFloat();
+        float price = Float.parseFloat(scan.nextLine());
         System.out.print("Estoque: ");
-        int stock = scan.nextInt();
+        int stock = Integer.parseInt(scan.nextLine());
         System.out.print("Categoria: ");
         String categoria = scan.nextLine();
         Product newProduct = new Product(id, name, description, price, stock, categoria);

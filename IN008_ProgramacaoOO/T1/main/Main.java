@@ -4,6 +4,7 @@ import utils.*;
 import config.*;
 import menu.*;
 import java.util.*;
+
 import java.io.*;
 
 public class Main{
@@ -28,31 +29,45 @@ public class Main{
         Sub_Menus refMenu = new Sub_Menus();
         ListsObjects list = new ListsObjects();
         Administrator admim = new Administrator(0, "admin", "admin@marketplace.com", "12345");
-        Costumer test = new Costumer(1, "Lucas", "lucas@gmail.com", "54321", "Tv. do Mandu");
-        list.users.add(test);
         list.users.add(admim);
 
         /*FileOutputStream fileOUT = new FileOutputStream("C://Users//plact//OneDrive//Documentos//scripts//IFBA//IN008_ProgramacaoOO//T1//config//database.bytej");
         ObjectOutputStream objectOUT = new ObjectOutputStream(fileOUT);*/
         while(true){
-            int num = refLogin.login(list);
-            if(num != 0){
-                switch (num) {
+            int answerLogin;
+            answerLogin = refLogin.login(list);
+            System.out.println("\n\n" + answerLogin + "\n");
+            if(answerLogin != 0){
+                String answerMenu = "open";
+                while(!answerMenu.equals("Exit")){
+                switch (answerLogin) {
                     case 1:
                         switch(refMenu.menuAdmin()){
                             case 1:
                                 CreateNewProduct.createNewProduct(list);
                                 break;
+                            case 2: 
+                                CreateNewUser.createNewUser(list);
+                                break;
+                            case 5:
+                                answerMenu = "Exit";
+                                break;
                             default:
                                 break;
-                        };
+                        }
                         break;
                     case 2:
-                        refMenu.menuCostumer();
+                        switch(refMenu.menuCostumer()){
+                            case 1:
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     default:
                         break;
                 }
+            }
             }
             System.out.println("Email ou senha incorretos!");
         }

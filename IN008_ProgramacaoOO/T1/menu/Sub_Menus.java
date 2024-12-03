@@ -6,7 +6,7 @@ public class Sub_Menus {
     private Scanner scan = new Scanner(System.in);
 
     public int menuAdmin(){
-        System.out.println("1. Create new produtc\n2. Create new user\n3. Report - more expensive order\n4. Report - product with lowest inventory\n4. Exit\nQual opcao:");
+        System.out.println("1. Create new produtc\n2. Create new user\n3. Report - more expensive order\n4. Report - product with lowest inventory\n5. Exit\nQual opcao:");
         int answer = scan.nextInt();
         return answer;
     }
