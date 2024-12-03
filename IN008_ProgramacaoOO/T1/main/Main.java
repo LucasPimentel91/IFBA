@@ -28,28 +28,19 @@ public class Main{
         Sub_Menus refMenu = new Sub_Menus();
         ListsObjects list = new ListsObjects();
         Administrator admim = new Administrator(0, "admin", "admin@marketplace.com", "12345");
-        list.ADMs.add(admim);
+        list.users.add(admim);
 
         /*FileOutputStream fileOUT = new FileOutputStream("C://Users//plact//OneDrive//Documentos//scripts//IFBA//IN008_ProgramacaoOO//T1//config//database.bytej");
         ObjectOutputStream objectOUT = new ObjectOutputStream(fileOUT);*/
         while(true){
             int num = refLogin.login(list);
-            if(num == 1){
-                switch (refMenu.menu()) {
+            if(num != 0){
+                switch (num) {
                     case 1:
-                        refMenu.menuProduct();
+                        refMenu.menuAdmin();
                         break;
                     case 2:
                         refMenu.menuCostumer();
-                        break;
-                    case 3:
-                        refMenu.menuAdministrator();
-                        break;
-                    case 4:
-                        refMenu.menuOrder();
-                        break;
-                    case 5:
-                        refMenu.menuShoppingCart();
                         break;
                     default:
                         break;

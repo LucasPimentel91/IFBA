@@ -1,6 +1,5 @@
 package utils;
 import java.util.*;
-
 import config.ListsObjects;
 import models.*;
 
@@ -12,11 +11,14 @@ public class Login {
         String email = scan.nextLine();
         System.out.print("senha: ");
         String password = scan.nextLine();
-        for(int i=0; i < list.ADMs.size(); i++){
-            int check = list.ADMs.get(i).verifyAccount(email, password);
+        for(int i=0; i < list.users.size(); i++){
+            int check = list.users.get(i).verifyAccount(email, password);
             if(check == 1){
-                System.out.println("\nAcesso permitido!\n");
-                return 1;
+                if(list.users.get(i) instanceof Administrator){
+                    return 1;
+                }else if(list.users.get(i) instanceof Costumer){
+                    return 2;
+                }
             }
         }
         return 0;
