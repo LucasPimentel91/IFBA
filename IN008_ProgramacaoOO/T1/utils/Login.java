@@ -4,6 +4,7 @@ import config.ListsObjects;
 import models.*;
 
 public class Login {
+    private User refUser;
     private Scanner scan = new Scanner(System.in);
 
     public int login(ListsObjects list){
@@ -17,10 +18,15 @@ public class Login {
                 if(list.users.get(i) instanceof Administrator){
                     return 1;
                 }else if(list.users.get(i) instanceof Costumer){
+                    this.refUser = list.users.get(i);
                     return 2;
                 }
             }
         }
         return 0;
+    }
+
+    public User getUser(){
+        return this.refUser;
     }
 }

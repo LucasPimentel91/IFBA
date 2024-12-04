@@ -21,5 +21,13 @@ public class Product implements Serializable
         this.categoria= categoria;
     }
 
+    public void display(){
+        System.out.println(this.name);
+        System.out.println(this.price);
+    }
+
+    public void reduceStock(){
+        --this.stock;
+    }
 
 }

@@ -8,7 +8,6 @@ import java.util.*;
 import java.io.*;
 
 public class Main{
-    //Listas para as instâncias de objetos
     
     /*scan.close();
 
@@ -59,6 +58,7 @@ public class Main{
                     case 2:
                         switch(refMenu.menuCostumer()){
                             case 1:
+                                StartNewOrder.startNewOrder(list, refLogin.getUser());
                                 break;
                             default:
                                 break;
