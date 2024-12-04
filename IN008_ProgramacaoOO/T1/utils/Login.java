@@ -19,7 +19,6 @@ public class Login {
                     return 1;
                 }else if(list.users.get(i) instanceof Costumer){
                     this.refUser = (Costumer)list.users.get(i);
-                    System.out.println("Passado o objeto cliente" + refUser.get());
                     return 2;
                 }
             }
