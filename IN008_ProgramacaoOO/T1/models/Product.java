@@ -21,5 +21,9 @@ public class Product implements Serializable
         this.categoria= categoria;
     }
 
+    public float priceMultiply(int quantity){
+        return this.price * quantity;
+    }
+
 
 }
