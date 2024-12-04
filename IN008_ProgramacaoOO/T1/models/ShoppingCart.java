@@ -5,7 +5,10 @@ import java.util.*;
 
 public class ShoppingCart implements Serializable{
     
-    private static LinkedList<Order> orders = new LinkedList<Order>();
-    private static Costumer userCostumer;
+    private LinkedList<Order> orders = new LinkedList<Order>();
+
+    public void addOrder(Order order){
+        this.orders.add(order);
+    }
     
 }

@@ -9,7 +9,7 @@ public class Order implements Serializable {
     private int quantityProductPurchased;
     private float totalCost;
 
-    public Order(int id, String dataOrder, Product refProduct, int quantityProductPurchased, float totalCost){
+    public Order(int id, String dataOrder, Product refProduct, int quantityProductPurchased){
         this.id=id;
         this.dataOrder=dataOrder;
         this.quantityProductPurchased=quantityProductPurchased;

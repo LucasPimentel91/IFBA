@@ -10,5 +10,7 @@ public class Costumer extends User implements Serializable
         this.address = address;
     }
 
-    public void buy(){}
+    public void feedingShoppingCart(Order order){
+        this.shoppingCart.addOrder(order);
+    }
 }

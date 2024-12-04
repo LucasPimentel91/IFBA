@@ -22,6 +22,7 @@ public class Product implements Serializable
     }
 
     public void display(){
+        System.out.println(this.id);
         System.out.println(this.name);
         System.out.println(this.price);
     }
