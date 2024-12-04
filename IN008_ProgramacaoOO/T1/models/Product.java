@@ -29,5 +29,9 @@ public class Product implements Serializable
     public void reduceStock(){
         --this.stock;
     }
+    public float priceMultiply(int quantity){
+        return this.price * quantity;
+    }
+
 
 }
