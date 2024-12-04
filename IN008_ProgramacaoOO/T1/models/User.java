@@ -22,4 +22,8 @@ public class User implements Serializable
             return 1;
         return 0;
     }
+
+    public String get(){
+        return this.name;
+    }
 }
