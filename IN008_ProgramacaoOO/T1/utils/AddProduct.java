@@ -5,24 +5,25 @@ import java.util.*;
 
 
 
-public class StartNewOrder {
+public class AddProduct {
     private static Scanner scan = new Scanner(System.in);
     private static Product refProduct;
 
-    public static void startNewOrder(ListsObjects list, Costumer refUser){
+    public static void addProduct(ListsObjects list, Costumer refUser){
         System.out.println("\n====ESTANTE DE PRODUTOS====\n");
         for(Product sample : list.products){
             sample.display();
             refProduct = sample;
             System.out.println("\n");
         }
+        
         System.out.print("\nID do produto: ");
-        int answer=Integer.parseInt(scan.nextLine());
+        int id=Integer.parseInt(scan.nextLine());
         System.out.print("\nQuantidade: ");
         int quantity=Integer.parseInt(scan.nextLine());
-        Order newOrder = new Order((int)Math.random()*100, "agora", refProduct, quantity);
+        OrderByProduct newOrder = new OrderByProduct(id, quantity);
         refUser.feedingShoppingCart(newOrder);
         System.out.println("\nPedido criado!!!");
-
+        
     }
 }

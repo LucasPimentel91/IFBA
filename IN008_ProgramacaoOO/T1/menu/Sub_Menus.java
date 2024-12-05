@@ -16,5 +16,11 @@ public class Sub_Menus {
         return answer;
     }
 
+    public int menuStartNewOrder(){
+        System.out.println("1. Add Product\n2. View Shopping Cart\n3. Finish Order\nQual opcao:");
+        int answer = scan.nextInt();
+        return answer;
+    }
+
 
 }

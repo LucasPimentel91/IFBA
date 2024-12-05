@@ -1,5 +1,6 @@
 package models;
 import java.io.Serializable;
+import config.*;
 
 public class Costumer extends User implements Serializable
 {
@@ -11,8 +12,12 @@ public class Costumer extends User implements Serializable
         this.shoppingCart = new ShoppingCart();
     }
 
-    public void feedingShoppingCart(Order order){
-        this.shoppingCart.addOrder(order);
+    public void feedingShoppingCart(OrderByProduct p){
+        this.shoppingCart.addProduct(p);
+    }
+
+    public void getShoppingCart(ListsObjects list){
+        this.shoppingCart.viewCart(list);
     }
 
     

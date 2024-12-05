@@ -34,5 +34,9 @@ public class Product implements Serializable
         return this.price * quantity;
     }
 
+    public boolean verifyId(int id){
+        return this.id == id;
+    }
+
 
 }

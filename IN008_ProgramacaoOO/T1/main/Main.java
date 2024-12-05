@@ -58,7 +58,20 @@ public class Main{
                     case 2:
                         switch(refMenu.menuCostumer()){
                             case 1:
-                                StartNewOrder.startNewOrder(list, refLogin.getUser());
+                                //StartNewOrder.startNewOrder(list, refLogin.getUser());
+                                switch(refMenu.menuStartNewOrder()){
+                                    case 1:
+                                        AddProduct.addProduct(list, refLogin.getUser());
+                                        break;
+                                    case 2:
+                                        ViewShoppingCart.viewShoppingCart(list, refLogin.getUser());
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                answerMenu = "Exit";
                                 break;
                             default:
                                 break;
