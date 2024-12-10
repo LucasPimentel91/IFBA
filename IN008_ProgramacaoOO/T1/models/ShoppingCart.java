@@ -21,6 +21,17 @@ public class ShoppingCart implements Serializable{
         }
     }
 
+    public float sumPrices(ListsObjects list){
+        float sum=0;
+        for(OrderByProduct product : listProducts){
+            for(Product refProduct : list.products){
+                if(refProduct.verifyId(product.getId()))
+                    sum+=refProduct.getPrice();
+            }
+        }
+        return sum;
+    }
+
     
     
 }

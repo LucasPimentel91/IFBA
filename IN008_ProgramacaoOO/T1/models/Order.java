@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class Order implements Serializable {
     private int id;
     private String dataOrder;
-    
     private int quantityProductPurchased;
     private float totalCost;
 
@@ -15,4 +14,6 @@ public class Order implements Serializable {
         this.quantityProductPurchased=quantityProductPurchased;
         this.totalCost=totalCost;
     }
+
+    // Display do pedido 
 }

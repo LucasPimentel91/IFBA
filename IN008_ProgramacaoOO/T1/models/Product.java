@@ -38,5 +38,9 @@ public class Product implements Serializable
         return this.id == id;
     }
 
+    public float getPrice(){
+        return this.price;
+    }
+
 
 }

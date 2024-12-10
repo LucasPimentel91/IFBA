@@ -5,6 +5,9 @@ import config.*;
 import menu.*;
 import java.util.*;
 
+import IN008_ProgramacaoOO.T1.utils.FinishOrder;
+import IN008_ProgramacaoOO.T1.utils.Login;
+
 import java.io.*;
 
 public class Main{
@@ -65,6 +68,9 @@ public class Main{
                                         break;
                                     case 2:
                                         ViewShoppingCart.viewShoppingCart(list, refLogin.getUser());
+                                        break;
+                                    case 3:
+                                        FinishOrder.finishOrder(list, refLogin.getUser());
                                         break;
                                     default:
                                         break;

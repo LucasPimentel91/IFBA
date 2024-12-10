@@ -16,8 +16,13 @@ public class Costumer extends User implements Serializable
         this.shoppingCart.addProduct(p);
     }
 
-    public void getShoppingCart(ListsObjects list){
+    public void viewShoppingCart(ListsObjects list){
         this.shoppingCart.viewCart(list);
+    }
+
+    public float valeuShoppingCart(ListsObjects list){
+        return this.shoppingCart.sumPrices(list);
+        
     }
 
     
