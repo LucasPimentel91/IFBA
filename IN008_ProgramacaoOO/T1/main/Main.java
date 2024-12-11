@@ -48,10 +48,10 @@ public class Main{
                                 CreateNewUser.createNewUser(list);
                                 break;
                             case 3:
-                                Report.reportProduct(list);
+                                Report.reportOrder(list);
                                 break;
                             case 4:
-                                //Report.reportOrder(list)
+                                Report.reportProduct(list);
                                 break;
                             case 5:
                                 answerMenu = "Exit";
