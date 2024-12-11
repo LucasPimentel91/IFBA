@@ -30,9 +30,6 @@ public class Product implements Serializable
     public void reduceStock(int num){
         this.stock -= num;
     }
-    public float priceMultiply(int quantity){
-        return this.price * quantity;
-    }
 
     public boolean verifyId(int id){
         return this.id == id;
@@ -40,6 +37,10 @@ public class Product implements Serializable
 
     public float getPrice(){
         return this.price;
+    }
+     
+    public int getStock(){
+        return this.stock;
     }
 
 

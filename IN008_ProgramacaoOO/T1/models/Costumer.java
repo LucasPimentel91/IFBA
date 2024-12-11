@@ -21,7 +21,8 @@ public class Costumer extends User implements Serializable
     }
 
     public float valeuShoppingCart(ListsObjects list){
-        return this.shoppingCart.sumPrices(list);
+        float result = this.shoppingCart.sumPrices(list);
+        return result;
         
     }
 

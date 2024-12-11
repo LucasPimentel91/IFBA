@@ -20,4 +20,8 @@ public class Order implements Serializable {
         System.out.println(this.dataOrder);
         System.out.println(this.totalCost);
     }
+
+    public float getTotalCost(){
+        return this.totalCost;
+    }
 }
