@@ -6,8 +6,9 @@ import java.lang.*;
 
 public class CreateNewProduct {
     private static Scanner scan = new Scanner(System.in);
+    private static Random random = new Random();
     public static void createNewProduct(ListsObjects list){
-        int id = (int) Math.random() * 100;
+        int id = random.nextInt(101);
         System.out.print("Nome do produto: ");
         String name = scan.nextLine();
         System.out.print("Descricao: ");

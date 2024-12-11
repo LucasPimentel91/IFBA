@@ -27,8 +27,8 @@ public class Product implements Serializable
         System.out.println(this.price);
     }
 
-    public void reduceStock(){
-        --this.stock;
+    public void reduceStock(int num){
+        this.stock -= num;
     }
     public float priceMultiply(int quantity){
         return this.price * quantity;

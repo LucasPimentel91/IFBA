@@ -26,7 +26,8 @@ public class ShoppingCart implements Serializable{
         for(OrderByProduct product : listProducts){
             for(Product refProduct : list.products){
                 if(refProduct.verifyId(product.getId()))
-                    sum+=refProduct.getPrice();
+                    sum=refProduct.getPrice() * product.getQuantity();
+                    refProduct.reduceStock(product.getQuantity());
             }
         }
         return sum;

@@ -15,5 +15,9 @@ public class Order implements Serializable {
         this.totalCost=totalCost;
     }
 
-    // Display do pedido 
+    public void display(){
+        System.out.println("Pedido " + this.id);
+        System.out.println(this.dataOrder);
+        System.out.println(this.totalCost);
+    }
 }
