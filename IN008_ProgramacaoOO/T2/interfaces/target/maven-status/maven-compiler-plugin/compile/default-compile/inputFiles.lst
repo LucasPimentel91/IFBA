@@ -1,0 +1,6 @@
+/workspaces/IFBA/IN008_ProgramacaoOO/T2/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IAuthenticationController.java
+/workspaces/IFBA/IN008_ProgramacaoOO/T2/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/ICore.java
+/workspaces/IFBA/IN008_ProgramacaoOO/T2/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IIOController.java
+/workspaces/IFBA/IN008_ProgramacaoOO/T2/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IPlugin.java
+/workspaces/IFBA/IN008_ProgramacaoOO/T2/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IPluginController.java
+/workspaces/IFBA/IN008_ProgramacaoOO/T2/interfaces/src/main/java/br/edu/ifba/inf008/interfaces/IUIController.java
