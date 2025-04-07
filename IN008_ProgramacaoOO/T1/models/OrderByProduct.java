@@ -5,8 +5,10 @@ public class OrderByProduct {
     private int quantityProduct;
 
     public OrderByProduct(int id, int quantity){
-        this.idProduct = id;
-        this.quantityProduct = quantity;
+        if(typedef(id) == Integer && typedef(quantity) == Integer){
+            this.idProduct = id;
+            this.quantityProduct = quantity;
+        }
     }
 
     public int getId(){

@@ -1,6 +1,7 @@
 package models;
 
 import java.io.Serializable;
+import java.lang.*;
 
 public class Order implements Serializable {
     private int id;
@@ -9,10 +10,12 @@ public class Order implements Serializable {
     private float totalCost;
 
     public Order(int id, String dataOrder, int quantityProductPurchased, float totalCost){
-        this.id=id;
-        this.dataOrder=dataOrder;
-        this.quantityProductPurchased=quantityProductPurchased;
-        this.totalCost=totalCost;
+        if(typeof(id) == Integer && (typeof(dataOrder) == String || dataOrder != null) && typeof(quantityProductPurchased) == Integer && typeof(totalCost) == Float){
+            this.id=id;
+            this.dataOrder=dataOrder;
+            this.quantityProductPurchased=quantityProductPurchased;
+            this.totalCost=totalCost;
+        }
     }
 
     public void display(){

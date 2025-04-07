@@ -10,10 +10,12 @@ public class User implements Serializable
     private String password;
 
     public User(int id, String name, String email, String password){
-        this.id=id;
-        this.name=name;
-        this.email=email;
-        this.password=password;
+        if(typeof(id) == Integer && (typeof(name) == String || name != null) && (typeof(email) == String || email != null) && (typeof(password) == String || password != null)){
+            this.id=id;
+            this.name=name;
+            this.email=email;
+            this.password=password;
+        }
     }
 
     public int verifyAccount(String email, String password){
