@@ -1,8 +1,8 @@
 package concretos;
 
-import abstratos.Builder;
+import abstratos.BuilderAutomotivo;
 
-public class ConstrutorCarro implements Builder {
+public class ConstrutorCarro implements BuilderAutomotivo {
     public Carro carro;
 
     @Override

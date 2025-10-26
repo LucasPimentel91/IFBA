@@ -1,18 +1,20 @@
 package concretos;
 
-import abstratos.Builder;
+import abstratos.BuilderAutomotivo;
+
+import java.util.ArrayList;
 
 public class Director {
-    public Builder construtor;
+    public ArrayList<BuilderAutomotivo> listaBuilders = new ArrayList<>();
 
-    public Director(Builder construtor){
-        this.construtor = construtor;
-    }
 
-    public void fazerVeiculo(){
-        construtor.reset();
-        construtor.adicionarRodas(4);
-        construtor.adicionarPortas(2);
-        construtor.adicionarMotor("Elétrico");
+    public void fazerVeiculo(int qtdRodas, int qtdPortas, String motor){
+        for(BuilderAutomotivo builder : listaBuilders){
+            builder.reset();
+            builder.adicionarMotor(motor);
+            builder.adicionarRodas(qtdRodas);
+            builder.adicionarPortas(qtdPortas);
+        }
+
     }
 }

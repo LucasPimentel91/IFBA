@@ -1,4 +1,3 @@
-import abstratos.Builder;
 import concretos.Carro;
 import concretos.ConstrutorCarro;
 import concretos.Director;
@@ -8,8 +7,9 @@ import concretos.Director;
 public class Main {
     public static void main(String[] args) {
         ConstrutorCarro construtorCarro = new ConstrutorCarro();
-        Director diretor = new Director(construtorCarro);
-        diretor.fazerVeiculo();
+        Director diretor = new Director();
+        diretor.listaBuilders.add(construtorCarro);
+        diretor.fazerVeiculo(4,2,"Elétrico");
         Carro carro = construtorCarro.resultado();
         carro.renderCarro();
     }
