@@ -1,6 +1,6 @@
+package question1;
 
-
-public class ConstrutorListaPassagem implements Builder{
+public class ConstrutorListaPassagem implements Builder {
     public ListaPassagem listaPassagem;
 
     @Override

@@ -1,3 +1,5 @@
+package question1;
+
 public interface Builder {
     public void init();
     public void setCategoria(String tipo);
