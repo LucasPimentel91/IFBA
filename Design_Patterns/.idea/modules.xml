@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Design_Patterns.iml" filepath="$PROJECT_DIR$/.idea/Design_Patterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/abstractFactory/abstractFactory.iml" filepath="$PROJECT_DIR$/abstractFactory/abstractFactory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/estruturais/composite/composite.iml" filepath="$PROJECT_DIR$/estruturais/composite/composite.iml" />
       <module fileurl="file://$PROJECT_DIR$/estruturais/estruturais.iml" filepath="$PROJECT_DIR$/estruturais/estruturais.iml" />
       <module fileurl="file://$PROJECT_DIR$/prototype/prototype.iml" filepath="$PROJECT_DIR$/prototype/prototype.iml" />
     </modules>
