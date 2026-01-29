@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/bridge/bridge.iml" filepath="$PROJECT_DIR$/bridge/bridge.iml" />
       <module fileurl="file://$PROJECT_DIR$/composite/composite.iml" filepath="$PROJECT_DIR$/composite/composite.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/estruturais.iml" filepath="$PROJECT_DIR$/.idea/estruturais.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facede/facede.iml" filepath="$PROJECT_DIR$/facede/facede.iml" />
     </modules>
   </component>
 </project>
